@@ -37,15 +37,15 @@ namespace ToursApp
             var currentTours = TourAgentDBEntities1.GetContext().Tour.ToList();
 
             if (TextBoxSearch.Text.Length > 0)
-                currentTours.Where(p => p.TourName.ToLower().Contains(TextBoxSearch.Text.ToLower())).ToList();
+                currentTours = currentTours.Where(p => p.TourName.ToLower().Contains(TextBoxSearch.Text.ToLower())).ToList();
 
             if (CheckActual.IsChecked == true)
-                currentTours.Where(p => p.IsActual).ToList();
+                currentTours = currentTours.Where(p => p.IsActual).ToList();
 
             if (ComboType.SelectedIndex > 0)
-                currentTours.Where(p => p.TypeOfTour.Contains(ComboType.SelectedItem as TypeOfTour)).ToList();
+                currentTours = currentTours.Where(p => p.TypeOfTour.Contains(ComboType.SelectedItem as TypeOfTour)).ToList();
 
-            ListViewTours.ItemsSource = currentTours.OrderBy(p => p.TicketCount).ToList();
+            ListViewTours.ItemsSource = currentTours.ToList();
         }
 
 
