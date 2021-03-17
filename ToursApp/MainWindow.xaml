@@ -19,7 +19,8 @@
                    Margin="20 0 0 0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"/>
-            <TextBlock Text="Список отелей"
+            <TextBlock Text="Список туров"
+                       x:Name="TextMain"
                        FontSize="40"
                        FontWeight="DemiBold"
                        VerticalAlignment="Center"
@@ -30,6 +31,14 @@
                     HorizontalAlignment="Right"
                     Margin="0 0 20 0"
                     Click="Btn_Back_Click"/>
+
+            <Button x:Name="Btn_Hotels"
+                    Content="Перейти к списку отелей"
+                    Click="Btn_Hotels_Click"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 20 0"
+                    Width="200"/>
         </Grid>
         
         <Frame Grid.Row="1"

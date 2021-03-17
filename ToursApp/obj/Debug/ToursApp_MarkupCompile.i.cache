@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\C#\ToursApp\ToursApp\obj\Debug\
+C:\C#\TourApp\ToursApp\obj\Debug\
 ToursApp
 none
 false
 DEBUG;TRACE
-C:\C#\ToursApp\ToursApp\App.xaml
-3-1875146385
+C:\C#\TourApp\ToursApp\App.xaml
+4-1060276735
 2-967514586
-19-398581727
-191031427468
-AddEditPage.xaml;HotelsPage.xaml;MainWindow.xaml;
+20-1370128310
+19869756005
+AddEditPage.xaml;HotelsPage.xaml;MainWindow.xaml;ToursPage.xaml;
 
 True
 

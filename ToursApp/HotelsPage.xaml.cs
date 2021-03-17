@@ -43,24 +43,32 @@ namespace ToursApp
         {
             var removingHotels = GridHotels.SelectedItems.Cast<Hotel>().ToList();
 
-            MessageBoxResult result = MessageBox.Show($"Вы точно хотите удалить {removingHotels.Count} элемента(-ов)?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result == MessageBoxResult.Yes)
+            if (removingHotels.Count == 0)
             {
-                try
-                {
-                    TourAgentDBEntities1.GetContext().Hotel.RemoveRange(removingHotels);
-                    TourAgentDBEntities1.GetContext().SaveChanges();
-
-                    MessageBox.Show("Данные удалены!");
-
-                    GridHotels.ItemsSource = TourAgentDBEntities1.GetContext().Hotel.ToList();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                MessageBox.Show("Выберите элементы для удаления");
             }
+
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Вы точно хотите удалить {removingHotels.Count} элемента(-ов)?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        TourAgentDBEntities1.GetContext().Hotel.RemoveRange(removingHotels);
+                        TourAgentDBEntities1.GetContext().SaveChanges();
+
+                        MessageBox.Show("Данные удалены!");
+
+                        GridHotels.ItemsSource = TourAgentDBEntities1.GetContext().Hotel.ToList();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }          
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

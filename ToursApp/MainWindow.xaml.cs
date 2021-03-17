@@ -24,16 +24,16 @@ namespace ToursApp
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Hotels());
+            MainFrame.Navigate(new ToursPage());
             NavigationManager.MainFrame = MainFrame;
 
-            ImportTours();
+            // ImportTours();
         }
 
         private void ImportTours()
         {
-            var fileData = File.ReadAllLines(@"C:\C#\ToursApp\данные для импорта\турыы.txt");
-            var images = Directory.GetFiles(@"C:\C#\ToursApp\данные для импорта\фото Туры");
+            var fileData = File.ReadAllLines(@"C:\C#\TourApp\данные для импорта\турыы.txt");
+            var images = Directory.GetFiles(@"C:\C#\TourApp\данные для импорта\фото Туры");
 
             foreach (var line in fileData)
             {
@@ -79,6 +79,17 @@ namespace ToursApp
                 Btn_Back.Visibility = Visibility.Visible;
             else
                 Btn_Back.Visibility = Visibility.Hidden;
+
+            if (NavigationManager.MainFrame.CanGoBack)
+                Btn_Hotels.Visibility = Visibility.Hidden;
+            else
+                Btn_Hotels.Visibility = Visibility.Visible;
+        }
+
+        private void Btn_Hotels_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationManager.MainFrame.Navigate(new Hotels());
+            TextMain.Text = "Список отелей";
         }
     }
 }
