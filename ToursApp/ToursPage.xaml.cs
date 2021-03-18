@@ -20,6 +20,9 @@ namespace ToursApp
     /// </summary>
     public partial class ToursPage : Page
     {
+        /// <summary>
+        /// Страница с турами
+        /// </summary>
         public ToursPage()
         {
             InitializeComponent();
@@ -32,6 +35,9 @@ namespace ToursApp
             UpdateTours();
         }
 
+        /// <summary>
+        /// Фильтрация по названию тура, категории и актуальности
+        /// </summary>
         private void UpdateTours()
         {
             var currentTours = TourAgentDBEntities1.GetContext().Tour.ToList();

@@ -29,16 +29,25 @@ namespace ToursApp
         {
         }
 
+        /// <summary>
+        /// Редактирование существующего отеля
+        /// </summary>
         private void Btn_Edit_Click(object sender, RoutedEventArgs e)
         {
             NavigationManager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Hotel));
         }
 
+        /// <summary>
+        /// Добавление нового отеля
+        /// </summary>
         private void Btn_Add_Click(object sender, RoutedEventArgs e)
         {
             NavigationManager.MainFrame.Navigate(new AddEditPage(null));
         }
 
+        /// <summary>
+        /// Удаление отелей
+        /// </summary>
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
             var removingHotels = GridHotels.SelectedItems.Cast<Hotel>().ToList();
@@ -71,6 +80,9 @@ namespace ToursApp
             }          
         }
 
+        /// <summary>
+        /// Автообновление контекста данных, когда окно с datagrid открыто
+        /// </summary>
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)

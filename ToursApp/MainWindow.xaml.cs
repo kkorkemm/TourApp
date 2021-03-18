@@ -30,6 +30,9 @@ namespace ToursApp
             // ImportTours();
         }
 
+        /// <summary>
+        /// Импорт данных о турах и изображений (уже импортированы)
+        /// </summary>
         private void ImportTours()
         {
             var fileData = File.ReadAllLines(@"C:\C#\TourApp\данные для импорта\турыы.txt");
@@ -68,11 +71,26 @@ namespace ToursApp
             }
         }
 
+        /// <summary>
+        /// Кнопка Назад
+        /// </summary>
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationManager.MainFrame.GoBack();
         }
 
+        /// <summary>
+        /// Кнопка Перейти к списку отелей
+        /// </summary>
+        private void Btn_Hotels_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationManager.MainFrame.Navigate(new Hotels());
+            TextMain.Text = "Список отелей";
+        }
+
+        /// <summary>
+        ///  Отображение и скрытие кнопок Назад и Перейти к списке отелей
+        /// </summary>
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
             if (NavigationManager.MainFrame.CanGoBack)
@@ -84,12 +102,6 @@ namespace ToursApp
                 Btn_Hotels.Visibility = Visibility.Hidden;
             else
                 Btn_Hotels.Visibility = Visibility.Visible;
-        }
-
-        private void Btn_Hotels_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationManager.MainFrame.Navigate(new Hotels());
-            TextMain.Text = "Список отелей";
         }
     }
 }

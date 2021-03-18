@@ -23,6 +23,11 @@ namespace ToursApp
     {
         private Hotel currentHotel = new Hotel();
 
+        /// <summary>
+        /// Вызов окна для добавления и редактирования отелей.
+        /// Если в качестве аргумента был передан null, добавляется новый отель
+        /// Иначе редактируется существующий
+        /// </summary>
         public AddEditPage(Hotel selectedHotel)
         {
             InitializeComponent();
@@ -34,6 +39,9 @@ namespace ToursApp
             ComboCountry.ItemsSource = TourAgentDBEntities1.GetContext().Country.ToList();
         }
 
+        /// <summary>
+        /// Проверка введенных данных и сохранение изменений в контексте данных
+        /// </summary>
         private void Btn_AddSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
